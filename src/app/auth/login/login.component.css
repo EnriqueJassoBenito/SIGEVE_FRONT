@@ -1,0 +1,36 @@
+.main-div{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.mat-mdc-card {
+  -webkit-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
+  -moz-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
+  box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
+  border-radius: 16px;
+}
+
+.card{
+  align-items: center;
+}
+
+.example-card{
+  display: flex;
+  width: 25vmax;
+  justify-content: center;
+  align-items: center;
+}
+
+.mdc-card__actions{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 15px;
+}
+
+.email{
+  padding-bottom: 10px;
+}

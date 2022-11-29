@@ -1,0 +1,54 @@
+.main-div{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /*adding: 40px;*/
+}
+
+.login-box-header img{
+  padding-bottom: 15px;
+}
+
+.mat-mdc-card-title{
+  font-size: 200%;
+  padding-bottom: 15px;
+}
+
+.mat-mdc-card {
+  -webkit-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
+  -moz-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
+  box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
+  border-radius: 16px;
+}
+
+.card{
+  align-items: center;
+}
+
+.example-card{
+  display: flex;
+  width: 25vmax;
+  justify-content: center;
+  align-items: center;
+}
+
+.mdc-card__actions{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.name{
+  padding-bottom: 10px;
+}
+
+.lastname{
+  padding-bottom: 10px;
+}
+
+.email{
+  padding-bottom: 10px;
+}

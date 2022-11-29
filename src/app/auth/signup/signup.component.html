@@ -1,0 +1,72 @@
+<!-- Classes main-div and example-card are catagorized in .css file -->
+<div class="main-div">
+  <img src="../../../assets/img/sigeve2.jpg" alt="Logo" mat-card-image style="width: 40%;
+            height: auto; display: inline">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div class="login-box-header">
+        <!--
+                <img src="../../../assets/img/sigeve2.jpg" alt="Logo" mat-card-image style="width: 40%;
+            height: auto; display: inline">
+        -->
+        <mat-card-title>Sign up</mat-card-title>
+      </div>
+    </mat-card-header>
+      <form class="example-form">
+        <mat-card-content class="row">
+
+          <div class="name">
+            <mat-form-field appearance="outline" class="w-60">
+              <mat-label>Name</mat-label>
+              <input matInput required name="name" #name="ngModel" [(ngModel)]="user.name" >
+              <mat-error *ngIf="name.invalid">
+                <span *ngIf="name.errors?.['required']">Campo obligatorio</span>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="lastname">
+            <mat-form-field appearance="outline">
+              <mat-label>Last Name</mat-label>
+              <input matInput required name="lastname" #lastname="ngModel" [(ngModel)]="user.lastname" >
+              <mat-error *ngIf="lastname.invalid">
+                <span *ngIf="lastname.errors?.['required']">Campo obligatorio</span>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="email">
+            <mat-form-field appearance="outline" class="w-60">
+              <mat-label>Email</mat-label>
+              <input type="email" matInput required name="email" #email="ngModel" [(ngModel)]="user.email" placeholder="enriquejasso@gmail.com">
+              <mat-error *ngIf="email.invalid">
+                <span *ngIf="email.errors?.['required']">Campo obligatorio</span>
+                <span *ngIf="email.errors?.['email']">Ingresar un correo valido</span>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="edad">
+            <mat-form-field appearance="outline">
+              <mat-label>Edad</mat-label>
+              <input matInput type="number" required name="lastname" #edad="ngModel" [(ngModel)]="user.edad" >
+              <mat-error *ngIf="edad.invalid">
+                <span *ngIf="edad.errors?.['required']">Campo obligatorio</span>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <mat-card-content>
+            <mat-card-actions class="row">
+              <div class="col text-center">
+                <button type="submit" mat-flat-button color="warn">Sign up</button>
+              </div>
+            </mat-card-actions>
+          </mat-card-content>
+          <div class="pie-form">
+            <!--<a href="#">¿Perdiste tu contraseña?</a>-->
+            <a href="">¿Ya tienes cuenta? Inicia sesión</a>
+          </div>
+        </mat-card-content>
+      </form>
+  </mat-card>
+</div>
