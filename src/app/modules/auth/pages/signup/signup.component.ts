@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {register, UserLogin} from "../types/user";
+import {UserSigning} from "../../types/user";
 
 @Component({
   selector: 'app-signup',
@@ -7,12 +7,12 @@ import {register, UserLogin} from "../types/user";
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
-  user: register = {
+  user: UserSigning = {
     name: '',
     lastname: '',
     email: '',
     password: '',
-    edad: '',
+    age: '',
   };
 
   hide = true;

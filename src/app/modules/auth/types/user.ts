@@ -3,10 +3,10 @@ export type UserLogin = {
   password: string;
 };
 
-export type register ={
+export type UserSigning ={
   name: string;
   lastname: string;
   email: string;
   password: string;
-  edad: string;
+  age: string;
 };

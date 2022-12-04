@@ -4,7 +4,7 @@
       <mat-card class="example-card">
         <mat-card-header class="row mt-1">
           <div class="col text-center">
-            <img src="../../../assets/img/sigeve2.jpg" alt="Logo" mat-card-image style="width: 40%;
+            <img src="../../../../../assets/img/sigeve2.jpg" alt="Logo" mat-card-image style="width: 40%;
             height: auto; display: inline">
             <mat-card-title>Log in</mat-card-title>
           </div>
@@ -25,7 +25,7 @@
               <div class="password">
               <mat-form-field appearance="outline">
                 <mat-label>Enter your password</mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'" matInput required name="password" #password="ngModel" [(ngModel)]="user.password">
+                <input matInput [type]="hide ? 'password' : 'text'" required name="password" #password="ngModel" [(ngModel)]="user.password">
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                   <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
@@ -44,7 +44,10 @@
             </mat-card-content>
             <div class="pie-form">
               <!--<a href="#">¿Perdiste tu contraseña?</a>-->
-              <a href="src/app/auth/signup/signup.component.html">¿No tienes Cuenta? Registrate</a>
+              <p>¿No tienes cuenta? Registrate abajo
+                <br>
+                <mat-icon>keyboard_arrow_down</mat-icon></p>
+
             </div>
           </mat-card-content>
         </form>
@@ -54,8 +57,8 @@
 </div>
 
 
-<!-- Classes main-div and example-card are catagorized in .css file -->
-<!--
+
+ <!--Classes main-div and example-card are catagorized in .css file
 <div class="main-div">
 
   <mat-card class="example-card">
@@ -75,17 +78,13 @@
                 <mat-label>Email</mat-label>
                 <input type="text" matInput required name="email" placeholder="enriquejasso@gmail.com">
               </mat-form-field>
-              -->
 
 
-              <!--
               <mat-form-field class="example-full-width">
                 <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
               </mat-form-field>
-              -->
 
 
-<!--
             </td>
           </tr>
           <tr>
@@ -97,27 +96,21 @@
                   <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
               </mat-form-field>
-              -->
 
 
-              <!--
               <mat-form-field class="example-full-width">
               <input matInput placeholder="Password" [(ngModel)]="password"type="password" name="password" required>
             </mat-form-field>
-              -->
 
-<!--
             </td>
           </tr></table>
       </form>
     </mat-card-content>
     <mat-card-actions>
       <button type="submit" mat-flat-button class="w-50" color="primary">Log in</button>
-      -->
 
-      <!--<button mat-raised-button (click)="login()" color="primary">Login</button>-->
+      <button mat-raised-button (click)="login()" color="primary">Login</button>
 
-<!--
     </mat-card-actions>
   </mat-card>
 -->

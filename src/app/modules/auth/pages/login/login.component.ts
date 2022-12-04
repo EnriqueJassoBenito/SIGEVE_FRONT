@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {UserLogin} from "../types/user";
+import {UserLogin} from "../../types/user";
 /*
 import {Router} from "@angular/router";
 import {AuthService} from "../service/auth.service";
@@ -16,12 +16,7 @@ export class LoginComponent {
     password: '',
   };
   hide = true;
-  /*
-  user: UserLogin = {
-    email: '',
-    password: '',
-  };
-
+/*
   get isLoading(){
     return this.authService.isLoading;
   }
