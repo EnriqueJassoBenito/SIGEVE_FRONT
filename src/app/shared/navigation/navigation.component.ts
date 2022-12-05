@@ -8,8 +8,14 @@ import {Router} from "@angular/router";
   templateUrl: './navigation.component.html'
 })
 export class NavigationComponent {
+//Esto es provicional
+  role:any={
+    isAdmin : false,
+    isClient: true
+  }
+
   session:any={
-    logged: true
+    logged: false
   }
 
   logoPath:string='../../../assets/img/nada.png'
