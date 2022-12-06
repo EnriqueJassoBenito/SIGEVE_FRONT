@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {map, Observable, shareReplay} from "rxjs";
 import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
 import {Router} from "@angular/router";
+import {LoginStateService} from "../../services/login-state.service";
 
 @Component({
   selector: 'app-navigation',
@@ -14,9 +15,16 @@ export class NavigationComponent {
     isClient: true
   }
 
-  session:any={
-    logged: false
+  get session(){
+    return this.loginStateService.isLogged
   }
+
+/*
+  session:any={
+    logged: true
+
+  }
+*/
 
   logoPath:string='../../../assets/img/nada.png'
 
@@ -26,11 +34,16 @@ export class NavigationComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver, private router:Router) {
-    /*this.session.logged=!!localStorage.getItem('token');
-    if (!this.session.logged){
-      this.router.navigateByUrl('/auth');
-    }*/
+  constructor(private breakpointObserver: BreakpointObserver,
+              private router:Router, private loginStateService: LoginStateService) {
+    this.loginStateService.setIsLogged=!!localStorage.getItem("token")
+    if (this.loginStateService.setIsLogged)
+      this.router.navigateByUrl("/login")
+  }
 
+  logout() {
+    localStorage.clear();
+    this.loginStateService.setIsLogged = false;
+    this.router.navigateByUrl("/");
   }
 }

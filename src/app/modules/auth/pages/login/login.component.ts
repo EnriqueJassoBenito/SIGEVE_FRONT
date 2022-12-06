@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import {UserLogin} from "../../types/user";
+import {LoginStateService} from "../../../../services/login-state.service";
+import {AuthService} from "../../service/auth.service";
+import {Router} from "@angular/router";
+
 /*
 import {Router} from "@angular/router";
 import {AuthService} from "../service/auth.service";
@@ -16,21 +20,21 @@ export class LoginComponent {
     password: '',
   };
   hide = true;
-/*
-  get isLoading(){
-    return this.authService.isLoading;
+  get session() {
+    return this.loginState.isLogged
   }
 
-  constructor(private authService: AuthService,
-              private router: Router) {
-    if (!!localStorage.getItem("token"))
-      this.router.navigateByUrl('/');
+  constructor(private authService:AuthService, private readonly router: Router,
+              private loginState: LoginStateService) {
+    this.loginState.setIsLogged = !!localStorage.getItem("token");
+    /*if (!this.loginState.isLogged)
+      this.router.navigateByUrl("/")*/
   }
 
-  signin(){
+  loginForm(){
     this.authService.login(this.user);
   }
-*/
+
 }
 
 

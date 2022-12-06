@@ -11,19 +11,23 @@ import {MatCardModule} from "@angular/material/card";
 import {MatIconModule} from "@angular/material/icon";
 import {FormsModule} from "@angular/forms";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
-import {AuthModule} from "./modules/auth/auth.module";
 import {NavigationComponent} from "./shared/navigation/navigation.component";
 import {MatListModule} from "@angular/material/list";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatGridListModule} from "@angular/material/grid-list";
+import {LoginComponent} from "./modules/auth/pages/login/login.component";
+import {SignupComponent} from "./modules/auth/pages/signup/signup.component";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationComponent
+    NavigationComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -36,12 +40,12 @@ import {MatGridListModule} from "@angular/material/grid-list";
     MatIconModule,
     FormsModule,
     MatProgressBarModule,
-    AuthModule,
     MatListModule,
     MatToolbarModule,
     MatSidenavModule,
     MatMenuModule,
     MatGridListModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
