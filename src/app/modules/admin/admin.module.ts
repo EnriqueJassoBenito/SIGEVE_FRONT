@@ -5,19 +5,33 @@ import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatTableModule} from "@angular/material/table";
 import {MatCardModule} from "@angular/material/card";
 import {MatIconModule} from "@angular/material/icon";
+import { MainGendersComponent } from './genders/pages/main-genders/main-genders.component';
+import { AddGendersComponent } from './genders/pages/add-genders/add-genders.component';
+import {MatSelectModule} from "@angular/material/select";
+import {FormsModule} from "@angular/forms";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {materialModules} from "../../types/material";
 
 
 
 @NgModule({
   declarations: [
-    MainMoviesComponent
+    MainMoviesComponent,
+    MainGendersComponent,
+    AddGendersComponent
   ],
   imports: [
     CommonModule,
     MatPaginatorModule,
     MatTableModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    MatSelectModule,
+    FormsModule,
+    MatDialogModule,
+    MatProgressSpinnerModule,
+    ...materialModules
   ]
 })
 export class AdminModule { }

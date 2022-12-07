@@ -1,0 +1,32 @@
+<!--<p>add-genders works!</p>-->
+<form #personalForm="ngForm" novalidate> <!--(submit)="savePersonal()"-->
+  <h2 mat-dialog-title>Register Generos</h2>
+  <mat-dialog-content class="mat-typography">
+    <div class="row form-group mb-3">
+      <div class="col">
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Name</mat-label>
+          <input matInput
+                 placeholder="Terror"
+                 #name_gdr="ngModel"
+                 name="name_gdr"
+                 [(ngModel)]="genders.name_gdr"
+                 required>
+          <mat-error *ngIf="name_gdr.invalid">
+                        <span *ngIf="name_gdr.errors?.['required']">
+                            Campo obligatorio
+                        </span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button type="button" mat-button mat-dialog-close>
+      Cancel
+    </button>
+    <button mat-button type="submit" [disabled]="personalForm.invalid">
+      Save
+    </button>
+  </mat-dialog-actions>
+</form>

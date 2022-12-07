@@ -11,8 +11,8 @@ import {LoginStateService} from "../../services/login-state.service";
 export class NavigationComponent {
 //Esto es provicional
   role:any={
-    isAdmin : false,
-    isClient: true
+    isAdmin : true,
+    isClient: false
   }
 
   get session(){
