@@ -1,5 +1,5 @@
 <!--<p>add-genders works!</p>-->
-<form #personalForm="ngForm" novalidate> <!--(submit)="savePersonal()"-->
+<form #personalForm="ngForm" novalidate (submit)="saveGender()">
   <h2 mat-dialog-title>Register Generos</h2>
   <mat-dialog-content class="mat-typography">
     <div class="row form-group mb-3">
@@ -22,11 +22,11 @@
     </div>
   </mat-dialog-content>
   <mat-dialog-actions align="end">
-    <button type="button" mat-button mat-dialog-close>
-      Cancel
+    <button type="button" mat-button mat-dialog-close color="warn">
+      Cancel <mat-icon>clear</mat-icon>
     </button>
-    <button mat-button type="submit" [disabled]="personalForm.invalid">
-      Save
+    <button mat-button type="submit" [disabled]="personalForm.invalid" color="">
+      Save <mat-icon>send</mat-icon>
     </button>
   </mat-dialog-actions>
 </form>

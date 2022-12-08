@@ -15,16 +15,25 @@ export class AddGendersComponent implements OnInit{
     return this.genderService.edit
   }
 
-  constructor(private genderService: GenderService, public modalRef: DialogRef<AddGendersComponent>) {
+  constructor(private genderService: GenderService,
+              public modalRef: DialogRef<AddGendersComponent>) {
     this.genders = this.genderService.gender
   }
 
   ngOnInit(): void{
-    /*this.genderService.findAll().subscribe((response)=>{
-      this.
-    })
 
-     */
+  }
+
+  saveGender(){
+    if (this.genderService.edit){
+      this.genderService.update(this.genders).subscribe((response)=>{
+        this.modalRef.close();
+      })
+    }else{
+      this.genderService.save(this.genders).subscribe(response=>{
+        this.modalRef.close()
+      })
+    }
   }
 
   previewFile(event: any) {

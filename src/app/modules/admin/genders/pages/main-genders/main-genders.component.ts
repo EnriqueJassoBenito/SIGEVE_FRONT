@@ -26,7 +26,8 @@ export class MainGendersComponent implements OnInit{
     return this.genderService.loading
   }
 
-  constructor(private genderService: GenderService, private _liveAnnouncer: LiveAnnouncer,
+  constructor(private genderService: GenderService,
+              private _liveAnnouncer: LiveAnnouncer,
               public dialog: MatDialog) {
   }
 
@@ -62,7 +63,6 @@ export class MainGendersComponent implements OnInit{
     modalRef.afterClosed().subscribe((result: any)=>{
       this.getAllGenders()
       this.genderService.gender = {
-        id_gdr: 0,
         name_gdr: '',
         status_gdr: 0
       }

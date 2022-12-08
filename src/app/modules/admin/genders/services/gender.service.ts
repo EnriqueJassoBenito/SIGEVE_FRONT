@@ -11,7 +11,6 @@ export class GenderService{
   private genderArray: Gender[] = []
   edit: boolean = false
   gender: Gender={
-    id_gdr: 0,
     name_gdr: '',
     status_gdr: 0
   }
@@ -25,7 +24,15 @@ export class GenderService{
 
   findAll(){
     this.loading = true
-    return this.http.get<Gender[]>(`${APP_URL_2}api/genders/all`);
+    return this.http.get<Gender[]>(`${APP_URL}api/genders/all`);
+  }
+  save(gender: Gender){
+    this.loading = true
+    return this.http.post<Gender[]>(`${APP_URL}api/genders/save`, gender)
+  }
+  update(gender: Gender){
+    this.loading = true
+    return this.http.post<Gender[]>(`${APP_URL}api/genders/update`, gender)
   }
 
 }
