@@ -4,11 +4,6 @@ import {LoginStateService} from "../../../../services/login-state.service";
 import {AuthService} from "../../service/auth.service";
 import {Router} from "@angular/router";
 
-/*
-import {Router} from "@angular/router";
-import {AuthService} from "../service/auth.service";
-import {UserLogin} from "../types/user";
-*/
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -30,11 +25,9 @@ export class LoginComponent {
     /*if (!this.loginState.isLogged)
       this.router.navigateByUrl("/")*/
   }
-
   loginForm(){
     this.authService.login(this.user);
   }
-
 }
 
 

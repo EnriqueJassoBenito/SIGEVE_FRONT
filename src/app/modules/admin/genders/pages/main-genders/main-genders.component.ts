@@ -16,7 +16,7 @@ export class MainGendersComponent implements OnInit{
   displayedColumns: string[] = [
     '#',
     'name_gdr',
-    'status_gdr'
+
     ];
   @ViewChild(MatPaginator) paginator!: MatPaginator
   @ViewChild(MatSort) sort!: MatSort

@@ -34,5 +34,4 @@ export class GenderService{
     this.loading = true
     return this.http.post<Gender[]>(`${APP_URL}api/genders/update`, gender)
   }
-
 }

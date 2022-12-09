@@ -16,7 +16,7 @@ export class MainMoviesComponent implements OnInit{
     '#',
     'name_mve',
     'duration',
-
+    'gender_mve'
   ]
   @ViewChild(MatPaginator) paginator!: MatPaginator
   @ViewChild(MatSort) sort!: MatSort
@@ -41,6 +41,7 @@ export class MainMoviesComponent implements OnInit{
       this.movieService.loading=false
       this.movie.paginator=this.paginator
       this.movie.sort=this.sort
+      console.log(response)
     })
   }
 

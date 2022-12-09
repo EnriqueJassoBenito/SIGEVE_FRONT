@@ -6,7 +6,8 @@ import {LoginStateService} from "../../services/login-state.service";
 
 @Component({
   selector: 'app-navigation',
-  templateUrl: './navigation.component.html'
+  templateUrl: './navigation.component.html',
+  styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent {
 //Esto es provicional
@@ -26,7 +27,7 @@ export class NavigationComponent {
   }
 */
 
-  logoPath:string='../../../assets/img/nada.png'
+  logoPath:string='../../../assets/img/palomitas-de-maiz.png' //hay un bug aqui
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
