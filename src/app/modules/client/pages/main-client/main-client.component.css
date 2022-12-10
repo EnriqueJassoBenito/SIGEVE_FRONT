@@ -1,0 +1,13 @@
+.mdc-card__media{
+  width: 18rem;
+}
+
+.card-movie{
+  width: 20rem;
+  margin: 5px;
+}
+
+.card-container{
+  display: flex;
+  justify-content: center;
+}

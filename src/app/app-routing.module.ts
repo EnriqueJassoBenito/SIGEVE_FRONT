@@ -5,6 +5,7 @@ import {SignupComponent} from "./modules/auth/pages/signup/signup.component";
 import {MainMoviesComponent} from "./modules/admin/movies/pages/main-movies/main-movies.component";
 import {MainGendersComponent} from "./modules/admin/genders/pages/main-genders/main-genders.component";
 import {MainClientComponent} from "./modules/client/pages/main-client/main-client.component";
+import {MainRoomsComponent} from "./modules/admin/rooms/pages/main-rooms/main-rooms.component";
 
 
 const routes: Routes = [
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path: 'gendersAdmin', component: MainGendersComponent},
   {path: 'roomsAdmin', component: MainGendersComponent},
   {path: 'showMoviesAdmin', component: MainGendersComponent},
-  {path: 'mainClient', component: MainClientComponent}
+  {path: 'mainClient', component: MainClientComponent},
+  {path: 'mainRooms', component: MainRoomsComponent}
 ];
 
 @NgModule({

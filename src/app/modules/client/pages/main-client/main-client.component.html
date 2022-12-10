@@ -1,4 +1,5 @@
 <!--<p>main-client works!</p>-->
+<br>
 <div class="container">
   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
     <div class="carousel-indicators">
@@ -15,12 +16,12 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <a href="#!" data-bs-toggle="modal" data-bs-target="#modal1">
+        <a (click)="openDialog()" id="avatar">
           <img src="../../../assets/img/avatar2.jpg" class="d-block w-100" alt="..." height="500">
         </a>
       </div>
       <div class="carousel-item">
-        <a href="#!" data-bs-toggle="modal" data-bs-target="#modal2">
+        <a (click)="openDialog()" id="elemental">
           <img src="../../../assets/img/elemental.jpeg" class="d-block w-100" alt="..." height="500">
         </a>
       </div>
@@ -52,52 +53,39 @@
     </button>
   </div>
 
-  <!--Modal de Peliculas-->
-  <!--  <div class="modal fade" tabindex="-1" id="modal1" aria-labelledby="modal1" aria-hidden="true">-->
-  <!--  <div class="modal-dialog">-->
-  <!--    <div class="modal-content">-->
-  <!--      <div class="modal-header">-->
-  <!--        <h5 class="modal-title">Avatar 2</h5>-->
-  <!--        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
-  <!--      </div>-->
-  <!--      <div class="modal-body">-->
-  <!--        <p>Genero: Ciencia ficción/Acción</p>-->
+  <div class="row mt-3 card-container align-items-center">
+    <mat-card class="card-movie">
+      <mat-card-header>
+        <mat-card-title>Avatar</mat-card-title>
+        <mat-card-subtitle>El sentido del agua</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="../../../../../assets/img/publicidad.jpg" alt="Photo of a Shiba Inu">
+      <mat-card-actions>
+        <button mat-raised-button color="warn">Ver cartelera</button>
+      </mat-card-actions>
+    </mat-card>
 
-  <!--        <p>Duración: 3h 12m</p>-->
+    <mat-card class="card-movie">
+      <mat-card-header>
+        <mat-card-title>Hasta Los Huesos</mat-card-title>
+        <mat-card-subtitle>Bones and All</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="../../../../../assets/img/bones.jpg" alt="Photo of a Shiba Inu">
+      <mat-card-actions>
+        <button mat-raised-button color="warn">Ver cartelera</button>
+      </mat-card-actions>
+    </mat-card>
 
-  <!--        <p>Jake Sully y Ney'tiri han formado una familia y hacen todo lo posible por permanecer juntos.-->
-  <!--          Sin embargo, deben abandonar su hogar y explorar las regiones de Pandora cuando una antigua amenaza-->
-  <!--          reaparece.</p>-->
-  <!--      </div>-->
-  <!--      <div class="modal-footer">-->
-  <!--        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
-  <!--        <button type="button" class="btn btn-primary">Ver Cartelera</button>-->
-  <!--      </div>-->
-  <!--    </div>-->
-  <!--  </div>-->
-  <!--  </div>-->
-  <!--Fin del Modal de peliculas-->
-
-  <div class="row mt-3">
-    <div class="col">
-      <div class="card" style="width: 18rem;">
-        <img src="../../../assets/img/publicidad.jpg" class="card-img-top" alt="...">
-      </div>
-    </div>
-    <div class="col">
-      <div class="card" style="width: 18rem;">
-        <img src="../../../assets/img/publicidad.jpg" class="card-img-top" alt="...">
-      </div>
-    </div>
-    <div class="col">
-      <div class="card" style="width: 18rem;">
-        <img src="../../../assets/img/publicidad.jpg" class="card-img-top" alt="...">
-      </div>
-    </div>
-    <div class="col">
-      <div class="card" style="width: 18rem;">
-        <img src="../../../assets/img/publicidad.jpg" class="card-img-top" alt="...">
-      </div>
-    </div>
+    <mat-card class="card-movie">
+      <mat-card-header>
+        <mat-card-title>Noche sin paz</mat-card-title>
+        <mat-card-subtitle>Violent Night</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="../../../../../assets/img/noche_sin_paz.jpg" alt="Photo of a Shiba Inu">
+      <mat-card-actions>
+        <button mat-raised-button color="warn">Ver cartelera</button>
+      </mat-card-actions>
+    </mat-card>
   </div>
 </div>
+

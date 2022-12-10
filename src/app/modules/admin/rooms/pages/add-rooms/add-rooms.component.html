@@ -1,0 +1,35 @@
+<!--<p>add-rooms works!</p>-->
+<form #personalForm="ngForm" novalidate (submit)="saveRoom()"> <!---->
+  <h2 mat-dialog-title>Register Salas</h2>
+  <mat-dialog-content class="mat-typography">
+    <div class="row form-group mb-3">
+      <div class="col">
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Sala</mat-label>
+          <input matInput placeholder="Numero de Sala" #number_room="ngModel" name="number_room" [(ngModel)]="rooms.number_room" required>
+          <mat-error *ngIf="number_room.invalid">
+            <span *ngIf="number_room.errors?.['required']">Campo obligatorio</span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Capacidad</mat-label>
+          <input matInput placeholder="Capacidad" #capacity="ngModel" name="number_room" [(ngModel)]="rooms.capacity" required>
+          <mat-error *ngIf="capacity.invalid">
+            <span *ngIf="capacity.errors?.['required']">Campo obligatorio</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button type="button" mat-button mat-dialog-close color="warn">Cancel
+      </button>
+    <button mat-button type="submit" [disabled]="personalForm.invalid" color="primary">Save
+      </button>
+  </mat-dialog-actions>
+</form>
+
+<!--
+<mat-icon>clear</mat-icon>
+<mat-icon>send</mat-icon>
+-->

@@ -21,6 +21,7 @@ import {SignupComponent} from "./modules/auth/pages/signup/signup.component";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {materialModules} from "./types/material";
 import {AdminModule} from "./modules/admin/admin.module";
+import {ClientModule} from "./modules/client/client.module";
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import {AdminModule} from "./modules/admin/admin.module";
     MatGridListModule,
     HttpClientModule,
     ...materialModules,
-    AdminModule
+    AdminModule,
+    ClientModule
   ],
   providers: [],
   exports: [AppComponent, NavigationComponent],

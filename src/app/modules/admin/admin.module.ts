@@ -12,6 +12,8 @@ import {FormsModule} from "@angular/forms";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {materialModules} from "../../types/material";
+import {MainRoomsComponent} from "./rooms/pages/main-rooms/main-rooms.component";
+import {AddRoomsComponent} from "./rooms/pages/add-rooms/add-rooms.component";
 
 
 
@@ -19,7 +21,9 @@ import {materialModules} from "../../types/material";
   declarations: [
     MainMoviesComponent,
     MainGendersComponent,
-    AddGendersComponent
+    AddGendersComponent,
+    MainRoomsComponent,
+    AddRoomsComponent
   ],
   imports: [
     CommonModule,
