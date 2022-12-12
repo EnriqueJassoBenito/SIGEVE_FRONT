@@ -7,6 +7,7 @@ import {MainGendersComponent} from "./modules/admin/genders/pages/main-genders/m
 import {MainClientComponent} from "./modules/client/pages/main-client/main-client.component";
 import {MainRoomsComponent} from "./modules/admin/rooms/pages/main-rooms/main-rooms.component";
 import {MainCarteleraComponent} from "./modules/client/pages/main-cartelera/main-cartelera.component";
+import {LoginGuardianService} from "./modules/auth/pages/login/login-guardian.service";
 
 
 const routes: Routes = [
@@ -17,10 +18,10 @@ const routes: Routes = [
   {path: 'mainClient', component: MainClientComponent},
   {path: 'carteleraClient', component: MainCarteleraComponent},
   //rutas del admin
-  {path: 'moviesAdmin', component: MainMoviesComponent},
-  {path: 'gendersAdmin', component: MainGendersComponent},
-  {path: 'showMoviesAdmin', component: MainGendersComponent},
-  {path: 'roomsAdmin', component: MainRoomsComponent}
+  {path: 'moviesAdmin', component: MainMoviesComponent, canActivate:[LoginGuardianService]},
+  {path: 'gendersAdmin', component: MainGendersComponent, canActivate:[LoginGuardianService]},
+  {path: 'showMoviesAdmin', component: MainGendersComponent, canActivate:[LoginGuardianService]},
+  {path: 'roomsAdmin', component: MainRoomsComponent, canActivate:[LoginGuardianService]}
 
 ];
 
