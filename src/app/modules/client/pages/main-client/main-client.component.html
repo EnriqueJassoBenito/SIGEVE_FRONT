@@ -14,6 +14,7 @@
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
               aria-label="Slide 5"></button>
     </div>
+    <!--Imagenes del carrusel-->
     <div class="carousel-inner">
       <div class="carousel-item active">
         <a (click)="openDialog()" id="avatar">
@@ -53,39 +54,19 @@
     </button>
   </div>
 
-  <div class="row mt-3 card-container align-items-center">
-    <mat-card class="card-movie">
+  <!--imagenes de los card-->
+  <div class="row mt-3 card-container align-items-center" >
+    <mat-card class="card-movie" *ngFor="let movie of movies">
       <mat-card-header>
-        <mat-card-title>Avatar</mat-card-title>
-        <mat-card-subtitle>El sentido del agua</mat-card-subtitle>
+        <mat-card-title>{{movie.name_mve}}</mat-card-title>
+        <mat-card-subtitle>{{movie.name_gdr}}</mat-card-subtitle>
       </mat-card-header>
-      <img mat-card-image src="../../../../../assets/img/publicidad.jpg" alt="Photo of a Shiba Inu">
+      <img mat-card-image src="../../../../../assets/img/{{movie.image_mve}}" alt="Error al cargar img">
       <mat-card-actions>
         <button mat-raised-button color="warn">Ver cartelera</button>
       </mat-card-actions>
     </mat-card>
 
-    <mat-card class="card-movie">
-      <mat-card-header>
-        <mat-card-title>Hasta Los Huesos</mat-card-title>
-        <mat-card-subtitle>Bones and All</mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="../../../../../assets/img/bones.jpg" alt="Photo of a Shiba Inu">
-      <mat-card-actions>
-        <button mat-raised-button color="warn">Ver cartelera</button>
-      </mat-card-actions>
-    </mat-card>
-
-    <mat-card class="card-movie">
-      <mat-card-header>
-        <mat-card-title>Noche sin paz</mat-card-title>
-        <mat-card-subtitle>Violent Night</mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="../../../../../assets/img/noche_sin_paz.jpg" alt="Photo of a Shiba Inu">
-      <mat-card-actions>
-        <button mat-raised-button color="warn">Ver cartelera</button>
-      </mat-card-actions>
-    </mat-card>
   </div>
 </div>
 

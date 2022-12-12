@@ -7,7 +7,7 @@
      <div>
        <mat-nav-list>
          <a mat-list-item routerLink="mainClient">Home</a>
-         <a mat-list-item routerLink="personal">Cartelera</a>
+         <a mat-list-item routerLink="carteleraClient">Cartelera</a>
        </mat-nav-list>
      </div>
     <div *ngIf="session.logged && role.isAdmin"> <!--Puede q la condicion quese solamente -->
@@ -15,7 +15,7 @@
         <a mat-list-item routerLink="personal">Administrar <br>Cartelera</a>
         <a mat-list-item routerLink="moviesAdmin" >Peliculas</a>
         <a mat-list-item routerLink="gendersAdmin">Generos</a>
-        <a mat-list-item routerLink="mainRooms">Salas</a>
+        <a mat-list-item routerLink="roomsAdmin">Salas</a>
         <a mat-list-item routerLink="users">Clientes</a>
       </mat-nav-list>
     </div>

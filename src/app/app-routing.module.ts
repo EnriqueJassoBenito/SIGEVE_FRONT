@@ -6,17 +6,22 @@ import {MainMoviesComponent} from "./modules/admin/movies/pages/main-movies/main
 import {MainGendersComponent} from "./modules/admin/genders/pages/main-genders/main-genders.component";
 import {MainClientComponent} from "./modules/client/pages/main-client/main-client.component";
 import {MainRoomsComponent} from "./modules/admin/rooms/pages/main-rooms/main-rooms.component";
+import {MainCarteleraComponent} from "./modules/client/pages/main-cartelera/main-cartelera.component";
 
 
 const routes: Routes = [
+  //rutas publicas
   {path:'login',component:LoginComponent},
   {path:'signup',component:SignupComponent},
+  //rutas del cliente (también son ppublicas todos pueden verlas)
+  {path: 'mainClient', component: MainClientComponent},
+  {path: 'carteleraClient', component: MainCarteleraComponent},
+  //rutas del admin
   {path: 'moviesAdmin', component: MainMoviesComponent},
   {path: 'gendersAdmin', component: MainGendersComponent},
-  {path: 'roomsAdmin', component: MainGendersComponent},
   {path: 'showMoviesAdmin', component: MainGendersComponent},
-  {path: 'mainClient', component: MainClientComponent},
-  {path: 'mainRooms', component: MainRoomsComponent}
+  {path: 'roomsAdmin', component: MainRoomsComponent}
+
 ];
 
 @NgModule({
