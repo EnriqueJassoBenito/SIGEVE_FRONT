@@ -1,0 +1,40 @@
+<!--
+<form #personalForm="ngForm" novalidate (submit)="saveMovies_Shows()"> &lt;!&ndash;&ndash;&gt;
+  <h2 mat-dialog-title>Register Funciones</h2>
+  <mat-dialog-content class="mat-typography">
+    <div class="row form-group mb-3">
+      <div class="col">
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Position</mat-label>
+          <mat-select [required]="true"
+                      [(ngModel)]="movies_shows.rooms.number_room"
+                      #number_room="ngModel"
+                      name="room">
+            <mat-option *ngFor="let room of rooms"
+                        [value]=".id">
+              {{ position.position }} - {{ position.description }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="position.invalid">
+                        <span *ngIf="position.errors?.['required']">
+                            Campo obligatorio
+                        </span>
+          </mat-error>
+        </mat-form-field>
+
+
+      </div>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button type="button" mat-button mat-dialog-close color="warn">
+      Cancel <mat-icon>clear</mat-icon>
+    </button>
+    <button mat-button type="submit" [disabled]="personalForm.invalid" color="primary">
+      Save <mat-icon>send</mat-icon>
+    </button>
+  </mat-dialog-actions>
+
+</form>
+-->

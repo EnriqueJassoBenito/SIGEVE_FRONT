@@ -15,6 +15,7 @@ export class MoviesService{
     duration: 0,
     gender: {},
     availability_mve: 0,
+    image_mve: '',
   }
 
   get movies(){
@@ -27,5 +28,18 @@ export class MoviesService{
   findAll(){
     this.loading = true
     return this.http.get<Movie[]>(`${APP_URL}api/movies/all`)
+  }
+  save(movie: Movie){
+    this.loading = true
+    return this.http.post<Movie[]>(`${APP_URL}api/movies/save`, movie)
+  }
+  update(movie: Movie){
+    this.loading = true
+    return this.http.put<Movie[]>(`${APP_URL}api/movies/update`, movie)
+  }
+  changeStatus(movie: Movie) {
+    this.loading = true;
+    return this.http.delete<Movie>(`${ APP_URL }api/movies/delete`,
+      { body: movie });
   }
 }

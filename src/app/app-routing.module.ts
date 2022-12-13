@@ -8,6 +8,9 @@ import {MainClientComponent} from "./modules/client/pages/main-client/main-clien
 import {MainRoomsComponent} from "./modules/admin/rooms/pages/main-rooms/main-rooms.component";
 import {MainCarteleraComponent} from "./modules/client/pages/main-cartelera/main-cartelera.component";
 import {LoginGuardianService} from "./modules/auth/pages/login/login-guardian.service";
+import {
+  MainMovies_showsComponent
+} from "./modules/admin/movies_shows/pages/main-movies_shows/main-movies_shows.component";
 
 
 const routes: Routes = [
@@ -20,7 +23,7 @@ const routes: Routes = [
   //rutas del admin
   {path: 'moviesAdmin', component: MainMoviesComponent, canActivate:[LoginGuardianService]},
   {path: 'gendersAdmin', component: MainGendersComponent, canActivate:[LoginGuardianService]},
-  {path: 'showMoviesAdmin', component: MainGendersComponent, canActivate:[LoginGuardianService]},
+  {path: 'showMoviesAdmin', component: MainMovies_showsComponent, canActivate:[LoginGuardianService]},
   {path: 'roomsAdmin', component: MainRoomsComponent, canActivate:[LoginGuardianService]}
 
 ];

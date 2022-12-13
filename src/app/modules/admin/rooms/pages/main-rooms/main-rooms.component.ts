@@ -7,6 +7,7 @@ import {LiveAnnouncer} from "@angular/cdk/a11y";
 import {MatDialog} from "@angular/material/dialog";
 import {RoomsService} from "../../services/rooms.service";
 import {AddRoomsComponent} from "../add-rooms/add-rooms.component";
+import {Room} from "../../types/rooms";
 
 @Component({
   selector: 'app-main-rooms',
@@ -16,8 +17,9 @@ import {AddRoomsComponent} from "../add-rooms/add-rooms.component";
 export class MainRoomsComponent implements OnInit{
   displayedColumns: string[] = [
     '#',
-    // 'number_room',
+    'number_room',
     'capacity',
+    'actions'
   ];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator
@@ -43,7 +45,7 @@ export class MainRoomsComponent implements OnInit{
       this.roomService.loading=false
       this.rooms.paginator=this.paginator
       this.rooms.sort=this.sort
-    })
+    });
   }
 
   announceSortChange(sort: Sort) {
@@ -68,6 +70,23 @@ export class MainRoomsComponent implements OnInit{
         capacity: 0,
         status_room: 0,
       }
-    })
+    });
+  }
+
+  editRoom(room: any) {
+    this.roomService.room = {
+      ...room,
+    };
+    this.roomService.edit = true;
+    this.openDialog('2ms', '2ms');
+  }
+
+  changeStatus(room: Room) {
+    this.roomService.changeStatus(room)
+      .subscribe((response) => {
+        console.log(response);
+        this.roomService.loading = false;
+        this.getAllRooms();
+      });
   }
 }

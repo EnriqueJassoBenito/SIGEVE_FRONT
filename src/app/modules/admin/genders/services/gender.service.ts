@@ -2,6 +2,7 @@ import {Injectable} from "@angular/core";
 import {Gender} from "../types/gender";
 import {HttpClient} from "@angular/common/http";
 import {APP_URL, APP_URL_2} from "../../../../services/base-url-app";
+import {Room} from "../../rooms/types/rooms";
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,11 @@ export class GenderService{
   }
   update(gender: Gender){
     this.loading = true
-    return this.http.post<Gender[]>(`${APP_URL}api/genders/update`, gender)
+    return this.http.put<Gender[]>(`${APP_URL}api/genders/update`, gender)
+  }
+  changeStatus(gender: Gender) {
+    this.loading = true;
+    return this.http.delete<Gender>(`${ APP_URL }api/genders/delete`,
+      { body: gender });
   }
 }

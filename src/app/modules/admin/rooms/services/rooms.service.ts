@@ -1,9 +1,7 @@
 import {Injectable} from "@angular/core";
-import {Movie} from "../../movies/types/movie";
 import {Room} from "../types/rooms";
 import {HttpClient} from "@angular/common/http";
 import {APP_URL} from "../../../../services/base-url-app";
-import {Gender} from "../../genders/types/gender";
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +17,7 @@ export class RoomsService{
     status_room: 0,
   }
 
-  get movies(){
+  get rooms(){
     return [...this.roomArray]
   }
 
@@ -36,7 +34,13 @@ export class RoomsService{
   }
   update(room: Room){
     this.loading = true
-    return this.http.post<Room[]>(`${APP_URL}api/rooms/update`, room)
+    return this.http.put<Room[]>(`${APP_URL}api/rooms/update`, room)
+  }
+
+  changeStatus(room: Room) {
+    this.loading = true;
+    return this.http.delete<Room>(`${ APP_URL }api/rooms/delete`,
+      { body: room });
   }
 
 }

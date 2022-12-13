@@ -14,16 +14,22 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {materialModules} from "../../types/material";
 import {MainRoomsComponent} from "./rooms/pages/main-rooms/main-rooms.component";
 import {AddRoomsComponent} from "./rooms/pages/add-rooms/add-rooms.component";
+import {AddMoviesComponent} from "./movies/pages/add-movies/add-movies.component";
+import {MainMovies_showsComponent} from "./movies_shows/pages/main-movies_shows/main-movies_shows.component";
+
+
 
 
 
 @NgModule({
   declarations: [
     MainMoviesComponent,
+    AddMoviesComponent,
     MainGendersComponent,
     AddGendersComponent,
     MainRoomsComponent,
-    AddRoomsComponent
+    AddRoomsComponent,
+    MainMovies_showsComponent,
   ],
   imports: [
     CommonModule,

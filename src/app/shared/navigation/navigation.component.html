@@ -12,11 +12,11 @@
      </div>
     <div *ngIf="session.logged && role.isAdmin"> <!--Puede q la condicion quese solamente -->
       <mat-nav-list>
-        <a mat-list-item routerLink="personal">Administrar <br>Cartelera</a>
+        <a mat-list-item routerLink="showMoviesAdmin">Administrar <br>Cartelera</a>
         <a mat-list-item routerLink="moviesAdmin" >Peliculas</a>
         <a mat-list-item routerLink="gendersAdmin">Generos</a>
         <a mat-list-item routerLink="roomsAdmin">Salas</a>
-        <a mat-list-item routerLink="users">Clientes</a>
+       <!-- <a mat-list-item routerLink="users">Clientes</a>-->
       </mat-nav-list>
     </div>
   </mat-sidenav>
@@ -34,13 +34,13 @@
         <button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
-          <button mat-menu-item><mat-icon>person</mat-icon>Perfil</button>
+         <!-- <button mat-menu-item><mat-icon>person</mat-icon>Perfil</button>-->
           <button mat-menu-item (click)="logout()"><mat-icon>logout</mat-icon>Logout</button>
         </mat-menu>
       </div>
       <div class="col text-end" *ngIf="!session.logged">
-        <button mat-raised-button	color="basic"><a routerLink="/login">Inicia sesión</a></button>
-        <button mat-raised-button	color="basic"><a routerLink="/signup">Registrate</a></button>
+        <button mat-raised-button	color="basic"><a routerLink="/login" style="text-decoration: none; color:white" >Inicia sesión</a></button>
+        <button mat-raised-button	color="basic"><a routerLink="/signup" style="text-decoration: none; color:white">Registrate</a></button>
       </div>
     </mat-toolbar>
     <div class="container-fluid border">

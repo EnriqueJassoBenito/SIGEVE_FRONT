@@ -22,6 +22,7 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {materialModules} from "./types/material";
 import {AdminModule} from "./modules/admin/admin.module";
 import {ClientModule} from "./modules/client/client.module";
+import {LoginGuardianService} from "./modules/auth/pages/login/login-guardian.service";
 
 
 @NgModule({
@@ -50,9 +51,10 @@ import {ClientModule} from "./modules/client/client.module";
     HttpClientModule,
     ...materialModules,
     AdminModule,
-    ClientModule
+    ClientModule,
+
   ],
-  providers: [],
+  providers: [LoginGuardianService],
   exports: [AppComponent, NavigationComponent],
   bootstrap: [AppComponent]
 })

@@ -6,6 +6,7 @@ import {Movie} from "../../types/movie"
 import {MoviesService} from "../../services/movies.service";
 import {LiveAnnouncer} from "@angular/cdk/a11y";
 import {MatDialog} from "@angular/material/dialog";
+import {AddMoviesComponent} from "../add-movies/add-movies.component";
 
 @Component({
   selector: 'app-main-movies',
@@ -16,7 +17,8 @@ export class MainMoviesComponent implements OnInit{
     '#',
     'name_mve',
     'duration',
-    'gender_mve'
+    'name_gdr', //por favor no olvides de checar este detalle
+    'image_mve'
   ]
   @ViewChild(MatPaginator) paginator!: MatPaginator
   @ViewChild(MatSort) sort!: MatSort
@@ -53,8 +55,41 @@ export class MainMoviesComponent implements OnInit{
     }
   }
 
-  /*openDialog(enterAnimation: string, exitAnimation: string){
-    const modalRef = this.dialog.open()
-  }*/
+  openDialog(enterAnimation: string, exitAnimation: string){
 
+    const modalRef = this.dialog.open(AddMoviesComponent,{
+      width: '60%',
+      enterAnimationDuration: enterAnimation,
+      exitAnimationDuration: exitAnimation,
+      disableClose: true
+    });
+    modalRef.afterClosed().subscribe((result: any)=>{
+      this.getAllMovies()
+      this.movieService.movie = {
+        name_mve: '',
+        duration: 0,
+        gender: {},
+        availability_mve: 0,
+        image_mve: '',
+      }
+    });
   }
+  editRoom(movie: any) {
+    this.movieService.movie = {
+      ...movie,
+      gender: { id: movie.id_gdr }
+    };
+    this.movieService.edit = true;
+    this.openDialog('2ms', '2ms');
+  }
+
+  changeStatus(movie: Movie) {
+    this.movieService.changeStatus(movie)
+      .subscribe((response) => {
+        console.log(response);
+        this.movieService.loading = false;
+        this.getAllMovies();
+      });
+  }
+
+}

@@ -7,6 +7,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {MatTableDataSource} from "@angular/material/table";
 import {Gender} from "../../types/gender";
 import {AddGendersComponent} from "../add-genders/add-genders.component";
+import {Room} from "../../../rooms/types/rooms";
 
 @Component({
   selector: 'app-main-genders',
@@ -16,6 +17,7 @@ export class MainGendersComponent implements OnInit{
   displayedColumns: string[] = [
     '#',
     'name_gdr',
+    'actions'
 
     ];
   @ViewChild(MatPaginator) paginator!: MatPaginator
@@ -67,5 +69,21 @@ export class MainGendersComponent implements OnInit{
         status_gdr: 0
       }
     })
+  }
+  editRoom(gender: any) {
+    this.genderService.gender = {
+      ...gender,
+    };
+    this.genderService.edit = true;
+    this.openDialog('2ms', '2ms');
+  }
+
+  changeStatus(gender: Gender) {
+    this.genderService.changeStatus(gender)
+      .subscribe((response) => {
+        console.log(response);
+        this.genderService.loading = false;
+        this.getAllGenders();
+      });
   }
 }

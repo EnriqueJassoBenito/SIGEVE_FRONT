@@ -6,4 +6,5 @@ export type Movie = Entity<number> &{
   duration: number;
   gender?: Gender;
   availability_mve: number;
+  image_mve: string;
 }
