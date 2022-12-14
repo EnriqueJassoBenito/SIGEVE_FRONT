@@ -5,6 +5,8 @@ import {materialModules} from "../../types/material";
 import { ModalClientComponent } from './pages/modal-client/modal-client.component';
 import { MainCarteleraComponent } from './pages/main-cartelera/main-cartelera.component';
 import { FormCardComponent } from './pages/form-card/form-card.component';
+import {RouterLink} from "@angular/router";
+import {FormsModule} from "@angular/forms";
 
 
 
@@ -17,7 +19,9 @@ import { FormCardComponent } from './pages/form-card/form-card.component';
   ],
   imports: [
     CommonModule,
-    ...materialModules
+    ...materialModules,
+    RouterLink,
+    FormsModule
   ]
 })
 export class ClientModule { }

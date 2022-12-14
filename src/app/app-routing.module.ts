@@ -15,8 +15,8 @@ import {
 
 const routes: Routes = [
   //rutas publicas
-  {path:'login',component:LoginComponent},
-  {path:'signup',component:SignupComponent},
+  {path:'login',component:LoginComponent, canActivate:[LoginGuardianService]},
+  {path:'signup',component:SignupComponent, canActivate:[LoginGuardianService]},
   //rutas del cliente (también son ppublicas todos pueden verlas)
   {path: 'mainClient', component: MainClientComponent},
   {path: 'carteleraClient', component: MainCarteleraComponent},

@@ -62,8 +62,9 @@
         <mat-card-subtitle>{{movie.name_gdr}}</mat-card-subtitle>
       </mat-card-header>
       <img mat-card-image src="../../../../../assets/img/{{movie.image_mve}}" alt="Error al cargar img">
-      <mat-card-actions>
-        <button mat-raised-button color="warn">Ver cartelera</button>
+      <mat-card-actions >
+        <button mat-raised-button color="warn" ><a routerLink="/carteleraClient" style="text-decoration: none; color: white">Ver cartelera</a></button>
+        <p></p>
       </mat-card-actions>
     </mat-card>
 

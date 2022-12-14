@@ -1,1 +1,73 @@
-<p>form-card works!</p>
+<!--<p>add-movies works!</p>-->
+<form #personalForm="ngForm" novalidate (submit)="saveSale()"> <!---->
+  <h2 mat-dialog-title>Register Pelicula</h2>
+  <mat-dialog-content class="mat-typography">
+    <div class="row form-group mb-3">
+      <div class="col">
+
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label></mat-label>
+          <input matInput #show_id="ngModel" name="show_id" [(ngModel)]="sale.movie_show_ste" >
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Nombre Tarjeta</mat-label>
+          <input matInput placeholder="Nombre en la tarjeta" #name_mve="ngModel" name="name_mve" [(ngModel)]="cosa.nada" >
+          <mat-error *ngIf="name_mve.invalid">
+            <span *ngIf="name_mve.errors?.['required']">Campo obligatorio</span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Número de tarjeta</mat-label>
+          <input matInput placeholder="Número de tarjeta" type="number" #name_mve2="ngModel" name="name_mve2" [(ngModel)]="cosa.nada2" >
+          <mat-error *ngIf="name_mve2.invalid">
+            <span *ngIf="name_mve2.errors?.['required']">Campo obligatorio</span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>csv</mat-label>
+          <input matInput placeholder="csv " type="number" #name_mve3="ngModel" name="name_mve3" [(ngModel)]="cosa.nada3" >
+          <mat-error *ngIf="name_mve3.invalid">
+            <span *ngIf="name_mve3.errors?.['required']">Campo obligatorio</span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Fecha</mat-label>
+          <input matInput placeholder="csv " #name_mve4="ngModel" type="date" name="name_mve4" [(ngModel)]="cosa.nada4" >
+          <mat-error *ngIf="name_mve4.invalid">
+            <span *ngIf="name_mve4.errors?.['required']">Campo obligatorio</span>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Función a seleccionar</mat-label>
+          <mat-select [required]="true"
+                      [(ngModel)]="sale.movie_show_ste"
+                      #name_mve="ngModel"
+                      name="name_gdr">
+            <mat-option *ngFor="let name_mve of shows"
+                        [value]="name_mve.id_msw">
+              {{ name_mve.name_mve }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="name_mve.invalid">
+                        <span *ngIf="name_mve.errors?.['required']">
+                            Campo obligatorio
+                        </span>
+          </mat-error>
+        </mat-form-field>
+
+      </div>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button type="button" mat-button mat-dialog-close color="warn">
+      Cancel <mat-icon>clear</mat-icon>
+    </button>
+    <button mat-button type="submit" [disabled]="personalForm.invalid" color="primary">
+      Save <mat-icon>send</mat-icon>
+    </button>
+  </mat-dialog-actions>
+
+</form>

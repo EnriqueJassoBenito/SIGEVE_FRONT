@@ -5,6 +5,8 @@ import {MoviesServiceClient} from "../../services/movies.service";
 import {LiveAnnouncer} from "@angular/cdk/a11y";
 import {MatTableDataSource} from "@angular/material/table";
 import {Movie} from "../../types/movies";
+import {LoginStateService} from "../../../../services/login-state.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-main-client',
@@ -15,13 +17,20 @@ export class MainClientComponent implements OnInit{
 
   movies: Movie[] = [];
 
+  get session(){
+    return this.loginStateService.isLogged
+  }
+
   get isLoading(){
     return this.movieService.loading
   }
 
   constructor(private movieService: MoviesServiceClient,
-    private _liveAnnouncer: LiveAnnouncer,
-    public dialog: MatDialog) {
+    private _liveAnnouncer: LiveAnnouncer, private router:Router,
+    public dialog: MatDialog, private loginStateService: LoginStateService) {
+    this.loginStateService.setIsLogged=!!localStorage.getItem("token")
+    if (this.loginStateService.setIsLogged)
+      this.router.navigateByUrl("/home")
   }
 
 

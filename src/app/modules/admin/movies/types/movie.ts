@@ -8,4 +8,5 @@ export type Movie = Entity<number> &{
   availability_mve?: number;
   image_mve?: string;
   id_mve?: number;
+
 }
