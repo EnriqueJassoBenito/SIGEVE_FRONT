@@ -41,7 +41,7 @@ export class MainRoomsComponent implements OnInit{
 
   getAllRooms(){
     this.roomService.findAll().subscribe((response)=>{
-      this.rooms = new MatTableDataSource<Gender>(response);
+      this.rooms = new MatTableDataSource<Room>(response);
       this.roomService.loading=false
       this.rooms.paginator=this.paginator
       this.rooms.sort=this.sort
@@ -81,8 +81,17 @@ export class MainRoomsComponent implements OnInit{
     this.openDialog('2ms', '2ms');
   }
 
-  changeStatus(room: Room) {
-    this.roomService.changeStatus(room)
+  disable(room: Room) {
+    this.roomService.disable(room)
+      .subscribe((response) => {
+        console.log(response);
+        this.roomService.loading = false;
+        this.getAllRooms();
+      });
+  }
+
+  enable(room:Room){
+    this.roomService.enable(room)
       .subscribe((response) => {
         console.log(response);
         this.roomService.loading = false;

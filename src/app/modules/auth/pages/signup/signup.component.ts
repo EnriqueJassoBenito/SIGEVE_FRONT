@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import {UserSigning} from "../../types/user";
+import {AuthService} from "../../service/auth.service";
+import {Router} from "@angular/router";
+import {LoginStateService} from "../../../../services/login-state.service";
 
 @Component({
   selector: 'app-signup',
@@ -9,11 +12,15 @@ import {UserSigning} from "../../types/user";
 export class SignupComponent {
   user: UserSigning = {
     name: '',
-    lastname: '',
     email: '',
     password: '',
-    age: '',
   };
 
   hide = true;
+
+  constructor(private authService:AuthService,) {
+  }
+  SingingForm(){
+    this.authService.register(this.user);
+  }
 }

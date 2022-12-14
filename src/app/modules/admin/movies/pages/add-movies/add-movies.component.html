@@ -7,7 +7,8 @@
 
         <mat-form-field appearance="fill" class="w-100">
           <mat-label>Name</mat-label>
-          <input matInput placeholder="Pelicula " #name_mve="ngModel" name="name_mve" [(ngModel)]="movies.name_mve" required>
+          <input matInput placeholder="name_mve " #name_mve="ngModel" name="name_mve" [(ngModel)]="movies.name_mve"
+                 required>
           <mat-error *ngIf="name_mve.invalid">
             <span *ngIf="name_mve.errors?.['required']">Campo obligatorio</span>
           </mat-error>
@@ -15,7 +16,8 @@
 
         <mat-form-field appearance="fill" class="w-100">
           <mat-label>Duracion</mat-label>
-          <input matInput placeholder="Pelicula " #duration="ngModel" name="name_mve" [(ngModel)]="movies.duration" required>
+          <input matInput placeholder="duration " #duration="ngModel" name="name_mve" [(ngModel)]="movies.duration"
+                 required>
           <mat-error *ngIf="duration.invalid">
             <span *ngIf="duration.errors?.['required']">Campo obligatorio</span>
           </mat-error>
@@ -23,29 +25,27 @@
 
         <mat-form-field appearance="fill" class="w-100">
           <mat-label>Genero</mat-label>
-          <mat-select [required]="true"
+          <mat-select
                       [(ngModel)]="movies.gender!.id"
-                      #name_gdr="ngModel"
-                      name="name_gdr">
+                      #gender="ngModel"
+                      [required]="true"
+                      name="gender">
             <mat-option *ngFor="let name_gdr of genders"
                         [value]="name_gdr.id_gdr">
               {{ name_gdr.name_gdr }}
             </mat-option>
           </mat-select>
-          <mat-error *ngIf="name_gdr.invalid">
-                        <span *ngIf="name_gdr.errors?.['required']">
+          <mat-error *ngIf="gender.invalid">
+                        <span *ngIf="gender.errors?.['required']">
                             Campo obligatorio
                         </span>
           </mat-error>
         </mat-form-field>
-
-        <mat-form-field appearance="fill" class="w-100">
-          <mat-label>Duracion</mat-label>
-          <input matInput placeholder="Pelicula " #image_mve="ngModel" name="image_mve" [(ngModel)]="movies.image_mve" required>
-          <mat-error *ngIf="image_mve.invalid">
-            <span *ngIf="image_mve.errors?.['required']">Campo obligatorio</span>
-          </mat-error>
-        </mat-form-field>
+        <div class="row">
+          <input type="file" class="w-100 form-control" accept="application/pdf,image/*"
+                 (change)="previewFile($event)"/>
+          <img [src]="loadedFile"/>
+        </div>
 
       </div>
     </div>
@@ -53,10 +53,12 @@
 
   <mat-dialog-actions align="end">
     <button type="button" mat-button mat-dialog-close color="warn">
-      Cancel <mat-icon>clear</mat-icon>
+      Cancel
+      <mat-icon>clear</mat-icon>
     </button>
     <button mat-button type="submit" [disabled]="personalForm.invalid" color="primary">
-      Save <mat-icon>send</mat-icon>
+      Save
+      <mat-icon>send</mat-icon>
     </button>
   </mat-dialog-actions>
 

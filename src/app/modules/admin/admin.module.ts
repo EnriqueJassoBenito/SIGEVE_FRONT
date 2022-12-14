@@ -16,10 +16,7 @@ import {MainRoomsComponent} from "./rooms/pages/main-rooms/main-rooms.component"
 import {AddRoomsComponent} from "./rooms/pages/add-rooms/add-rooms.component";
 import {AddMoviesComponent} from "./movies/pages/add-movies/add-movies.component";
 import {MainMovies_showsComponent} from "./movies_shows/pages/main-movies_shows/main-movies_shows.component";
-
-
-
-
+import {AddMovies_showsComponent} from "./movies_shows/pages/add-movies_shows/add-movies_shows.component";
 
 @NgModule({
   declarations: [
@@ -30,6 +27,7 @@ import {MainMovies_showsComponent} from "./movies_shows/pages/main-movies_shows/
     MainRoomsComponent,
     AddRoomsComponent,
     MainMovies_showsComponent,
+    AddMovies_showsComponent
   ],
   imports: [
     CommonModule,

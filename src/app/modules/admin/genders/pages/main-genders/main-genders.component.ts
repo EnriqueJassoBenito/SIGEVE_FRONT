@@ -70,7 +70,7 @@ export class MainGendersComponent implements OnInit{
       }
     })
   }
-  editRoom(gender: any) {
+  editGender(gender: any) {
     this.genderService.gender = {
       ...gender,
     };
@@ -78,8 +78,17 @@ export class MainGendersComponent implements OnInit{
     this.openDialog('2ms', '2ms');
   }
 
-  changeStatus(gender: Gender) {
-    this.genderService.changeStatus(gender)
+  disable(gender: Gender) {
+    this.genderService.disable(gender)
+      .subscribe((response) => {
+        console.log(response);
+        this.genderService.loading = false;
+        this.getAllGenders();
+      });
+  }
+
+  enable(gender: Gender) {
+    this.genderService.enable(gender)
       .subscribe((response) => {
         console.log(response);
         this.genderService.loading = false;

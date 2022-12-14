@@ -11,10 +11,10 @@
         <mat-card-title>Sign up</mat-card-title>
       </div>
     </mat-card-header>
-      <form class="example-form">
+      <form class="example-form" (submit)="SingingForm()">
         <mat-card-content class="row">
 
-          <div class="name">
+          <div class="inputSign">
             <mat-form-field appearance="outline" class="w-60">
               <mat-label>Name</mat-label>
               <input matInput required name="name" #name="ngModel" [(ngModel)]="user.name" >
@@ -23,18 +23,7 @@
               </mat-error>
             </mat-form-field>
           </div>
-
-          <div class="lastname">
-            <mat-form-field appearance="outline">
-              <mat-label>Last Name</mat-label>
-              <input matInput required name="lastname" #lastname="ngModel" [(ngModel)]="user.lastname" >
-              <mat-error *ngIf="lastname.invalid">
-                <span *ngIf="lastname.errors?.['required']">Campo obligatorio</span>
-              </mat-error>
-            </mat-form-field>
-          </div>
-
-          <div class="email">
+          <div class="inputSign">
             <mat-form-field appearance="outline" class="w-60">
               <mat-label>Email</mat-label>
               <input type="email" matInput required name="email" #email="ngModel" [(ngModel)]="user.email" placeholder="enriquejasso@gmail.com">
@@ -44,13 +33,12 @@
               </mat-error>
             </mat-form-field>
           </div>
-
-          <div class="edad">
-            <mat-form-field appearance="outline">
-              <mat-label>Edad</mat-label>
-              <input matInput type="number" required name="lastname" #edad="ngModel" [(ngModel)]="user.age" >
-              <mat-error *ngIf="edad.invalid">
-                <span *ngIf="edad.errors?.['required']">Campo obligatorio</span>
+          <div class="inputSign">
+            <mat-form-field appearance="outline" class="w-60">
+              <mat-label>Password</mat-label>
+              <input type="password" matInput required name="password" #password="ngModel" [(ngModel)]="user.password">
+              <mat-error *ngIf="password.invalid">
+                <span *ngIf="password.errors?.['required']">Campo obligatorio</span>
               </mat-error>
             </mat-form-field>
           </div>
@@ -62,10 +50,10 @@
             </mat-card-actions>
           </mat-card-content>
           <div class="pie-form">
-            <a href="#">¿Perdiste tu contraseña?</a>
+            <a routerLink="forgotPassword">¿Perdiste tu contraseña?</a>
             <p>
             <mat-icon>keyboard_arrow_down</mat-icon>
-              ¿Ya tienes cuenta? Inicia sesión arriba
+              <a routerLink="login">¿Ya tienes cuenta? Inicia sesión arriba</a>
             </p>
 
           </div>

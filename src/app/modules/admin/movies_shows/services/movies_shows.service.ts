@@ -11,7 +11,7 @@ export class Movies_showsService{
   private movie_showArray: Movie_show[]=[]
   edit: boolean=false
   movie_show: Movie_show={
-    name_mve: '',
+    name_mve: {},
     number_room: {},
     start_show: '',
     end_show: '',

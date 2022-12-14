@@ -35,9 +35,12 @@ export class GenderService{
     this.loading = true
     return this.http.put<Gender[]>(`${APP_URL}api/genders/update`, gender)
   }
-  changeStatus(gender: Gender) {
+  disable(gender: Gender) {
     this.loading = true;
-    return this.http.delete<Gender>(`${ APP_URL }api/genders/delete`,
-      { body: gender });
+    return this.http.put<Gender>(`${ APP_URL }api/genders/disable/`+ gender.id_gdr, {});
+  }
+  enable(gender: Gender) {
+    this.loading = true;
+    return this.http.put<Gender>(`${ APP_URL }api/genders/enable/`+ gender.id_gdr, {});
   }
 }

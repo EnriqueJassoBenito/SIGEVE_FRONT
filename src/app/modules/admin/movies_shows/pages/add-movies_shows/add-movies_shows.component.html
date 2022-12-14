@@ -1,28 +1,72 @@
-<!--
-<form #personalForm="ngForm" novalidate (submit)="saveMovies_Shows()"> &lt;!&ndash;&ndash;&gt;
+<form #personalForm="ngForm" novalidate (submit)="saveMovies_Shows()"> <!---->
   <h2 mat-dialog-title>Register Funciones</h2>
   <mat-dialog-content class="mat-typography">
     <div class="row form-group mb-3">
       <div class="col">
         <mat-form-field appearance="fill" class="w-100">
-          <mat-label>Position</mat-label>
-          <mat-select [required]="true"
-                      [(ngModel)]="movies_shows.rooms.number_room"
-                      #number_room="ngModel"
-                      name="room">
-            <mat-option *ngFor="let room of rooms"
-                        [value]=".id">
-              {{ position.position }} - {{ position.description }}
+          <mat-label>Pelicula</mat-label>
+          <mat-select
+            [(ngModel)]="movies_shows.name_mve!.id"
+            #name_mve="ngModel"
+            [required]="true"
+            name="name_mve">
+            <mat-option *ngFor="let name_mve of movies"
+                        [value]="name_mve.id_mve">
+              {{ name_mve.name_mve }}
             </mat-option>
           </mat-select>
-          <mat-error *ngIf="position.invalid">
-                        <span *ngIf="position.errors?.['required']">
-                            Campo obligatorio
-                        </span>
+          <mat-error *ngIf="name_mve.invalid">
+              <span *ngIf="name_mve.errors?.['required']">
+                Campo obligatorio
+              </span>
           </mat-error>
         </mat-form-field>
 
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Sala</mat-label>
+          <mat-select
+            [(ngModel)]="movies_shows.number_room!.id"
+            #number_room="ngModel"
+            [required]="true"
+            name="number_room">
+            <mat-option *ngFor="let number_room of rooms"
+                        [value]="number_room.id_room">
+              {{ number_room.number_room }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="number_room.invalid">
+              <span *ngIf="number_room.errors?.['required']">
+                Campo obligatorio
+              </span>
+          </mat-error>
+        </mat-form-field>
 
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Hora de inicio</mat-label>
+          <input matInput placeholder="start_show " #start_show="ngModel" name="start_show" [(ngModel)]="movies_shows.start_show"
+                 required>
+          <mat-error *ngIf="start_show.invalid">
+            <span *ngIf="start_show.errors?.['required']">Campo obligatorio</span>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Hora de fin</mat-label>
+          <input matInput placeholder="end_show " #end_show="ngModel" name="end_show" [(ngModel)]="movies_shows.end_show"
+                 required>
+          <mat-error *ngIf="end_show.invalid">
+            <span *ngIf="end_show.errors?.['required']">Campo obligatorio</span>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Fecha</mat-label>
+          <input matInput type="date" #date_show="ngModel" name="date_show" [(ngModel)]="movies_shows.date_show"
+                 required>
+          <mat-error *ngIf="date_show.invalid">
+            <span *ngIf="date_show.errors?.['required']">Campo obligatorio</span>
+          </mat-error>
+        </mat-form-field>
       </div>
     </div>
   </mat-dialog-content>
@@ -37,4 +81,3 @@
   </mat-dialog-actions>
 
 </form>
--->

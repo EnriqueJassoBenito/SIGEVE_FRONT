@@ -2,11 +2,11 @@ import {Component, OnInit, ViewChild} from "@angular/core";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort, Sort} from "@angular/material/sort";
 import {MatTableDataSource} from "@angular/material/table";
-import {Movie} from "../../../movies/types/movie";
 import {LiveAnnouncer} from "@angular/cdk/a11y";
 import {MatDialog} from "@angular/material/dialog";
 import {Movie_show} from "../../types/movies_shows";
 import {Movies_showsService} from "../../services/movies_shows.service";
+import {AddMovies_showsComponent} from "../add-movies_shows/add-movies_shows.component";
 
 
 
@@ -22,7 +22,8 @@ export class MainMovies_showsComponent implements OnInit{
     'number_room',
     'start_show',
     'end_show',
-    'date_show'
+    'date_show',
+    'actions'
   ]
   @ViewChild(MatPaginator) paginator!: MatPaginator
   @ViewChild(MatSort) sort!: MatSort
@@ -59,7 +60,7 @@ export class MainMovies_showsComponent implements OnInit{
     }
   }
 
-  /*openDialog(enterAnimation: string, exitAnimation: string){
+  openDialog(enterAnimation: string, exitAnimation: string){
 
     const modalRef = this.dialog.open(AddMovies_showsComponent,{
       width: '60%',
@@ -70,7 +71,7 @@ export class MainMovies_showsComponent implements OnInit{
     modalRef.afterClosed().subscribe((result: any)=>{
       this.getAllMovies_Shows()
       this.moviesShowsService.movie_show = {
-        name_mve: '',
+        name_mve: {},
         number_room: {},
         start_show: '',
         end_show: '',
@@ -78,14 +79,14 @@ export class MainMovies_showsComponent implements OnInit{
         availability_msw: 0,
       }
     });
-  }*/
+  }
   editRoom(movie_show: any) {
     this.moviesShowsService.movie_show = {
       ...movie_show,
       movie: { id: movie_show.id_mve }
     };
     this.moviesShowsService.edit = true;
-    /*this.openDialog('2ms', '2ms');*/
+    this.openDialog('2ms', '2ms');
   }
 
   changeStatus(movie_show: Movie_show) {

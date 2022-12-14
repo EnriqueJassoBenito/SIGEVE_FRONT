@@ -37,12 +37,27 @@
       </ng-container>
       <ng-container matColumnDef="image_mve">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Imagen</th>
-        <td mat-cell *matCellDef="let element">{{ element.image_mve }}</td>
+        <td mat-cell *matCellDef="let element">
+          <img [src]="element.image_mve" mat-card-avatar alt="Avatar"/>
+        </td>
       </ng-container>
 
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef>Actions</th>
-        <td mat-cell *matCellDef="let element">Buttons</td>
+        <td mat-cell *matCellDef="let element">
+          <button mat-mini-fab class="me-2" color="warn"
+                  (click)="editMovie(element)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button *ngIf="element.availability_mve === 1" mat-mini-fab="bg-danger"
+                  (click)="disable(element)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button *ngIf="element.availability_mve === 0" mat-mini-fab="bg-success"
+                  (click)="enable(element)">
+            <mat-icon>restore_from_trash</mat-icon>
+          </button>
+        </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

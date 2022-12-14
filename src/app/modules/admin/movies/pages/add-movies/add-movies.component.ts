@@ -32,12 +32,16 @@ export class AddMoviesComponent implements OnInit{
   }
 
   saveMovie(){
+    console.log(this.movies);
+    this.movies.image_mve = this.loadedFile
     if (this.moviesService.edit){
-      this.moviesService.update(this.movies).subscribe((response)=>{
+      this.moviesService.update(this.movies)
+        .subscribe((response)=>{
         this.modalRef.close();
       })
     }else{
-      this.moviesService.save(this.movies).subscribe(response=>{
+      this.moviesService.save(this.movies)
+        .subscribe(response=>{
         this.modalRef.close()
       })
     }

@@ -35,20 +35,22 @@
       </ng-container>
 
       <ng-container matColumnDef="actions">
+<!--ngIf: evalua la expresion, si la condicion es verdadera, se muestra la etiqueta que esta en ese ngif,
+      si la condicion es falsa, no se muestra la etiqueta que esta ese ngIf-->
         <th mat-header-cell *matHeaderCellDef>Actions</th>
         <td mat-cell *matCellDef="let element">
           <button mat-mini-fab class="me-2" color="warn"
                   (click)="editRoom(element)">
             <mat-icon>edit</mat-icon>
           </button>
-         <!-- <button mat-mini-fab [ngClass]="{
-                    'bg-danger': element.status === 1,
-                    'bg-success': element.status === 0
-                    }"
-                  (click)="changeStatus(element)">
-            <mat-icon *ngIf="element.status === 1">delete</mat-icon>
-            <mat-icon *ngIf="element.status === 0">restore_from_trash</mat-icon>
-          </button>-->
+          <button *ngIf="element.status_room === 1" mat-mini-fab class="bg-danger"
+                  (click)="disable(element)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button *ngIf="element.status_room === 0" mat-mini-fab class="bg-success"
+                  (click)="enable(element)">
+            <mat-icon>restore_from_trash</mat-icon>
+          </button>
         </td>
       </ng-container>
 

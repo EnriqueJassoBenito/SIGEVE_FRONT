@@ -31,27 +31,27 @@
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Genero</th>
         <td mat-cell *matCellDef="let element">{{ element.name_gdr }}</td>
       </ng-container>
-     <!-- <ng-container matColumnDef="status_gdr">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Genero</th>
-        <td mat-cell *matCellDef="let element">{{ element.status_gdr }}</td>
-      </ng-container>-->
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef>Actions</th>
         <td mat-cell *matCellDef="let element">
           <button mat-mini-fab class="me-2" color="warn"
-                  (click)="editRoom(element)">
+                  (click)="editGender(element)">
             <mat-icon>edit</mat-icon>
           </button>
-          <button mat-mini-fab [ngClass]="{
-                    'bg-danger': element.status === 1,
-                    'bg-success': element.status === 0
-                    }"
-                  (click)="changeStatus(element)">
-            <mat-icon *ngIf="element.status === 1">delete</mat-icon>
-            <mat-icon *ngIf="element.status === 0">restore_from_trash</mat-icon>
+          <button *ngIf="element.status_gdr === 1" mat-mini-fab="bg-danger"
+                  (click)="disable(element)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button *ngIf="element.status_gdr === 0" mat-mini-fab="bg-success"
+                  (click)="enable(element)">
+            <mat-icon>restore_from_trash</mat-icon>
           </button>
         </td>
       </ng-container>
+      <!--Aqui en esta parte no mostraba el icono de delete porque en la parte del
+status no era status, se tenia que colocar tal cual lo tenemos en el campo de gender -->
+      <!--<mat-icon *ngIf="element.status === 1">delete</mat-icon>-->
+      <!--<mat-icon *ngIf="element.status_gdr === 1">delete</mat-icon>-->
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>

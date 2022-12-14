@@ -5,8 +5,6 @@ export type UserLogin = {
 
 export type UserSigning ={
   name: string;
-  lastname: string;
   email: string;
   password: string;
-  age: string;
 };

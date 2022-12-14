@@ -17,8 +17,9 @@ export class MainMoviesComponent implements OnInit{
     '#',
     'name_mve',
     'duration',
-    'name_gdr', //por favor no olvides de checar este detalle
-    'image_mve'
+    'name_gdr',
+    'image_mve',
+    'actions'
   ]
   @ViewChild(MatPaginator) paginator!: MatPaginator
   @ViewChild(MatSort) sort!: MatSort
@@ -70,11 +71,10 @@ export class MainMoviesComponent implements OnInit{
         duration: 0,
         gender: {},
         availability_mve: 0,
-        image_mve: '',
       }
     });
   }
-  editRoom(movie: any) {
+  editMovie(movie: any) {
     this.movieService.movie = {
       ...movie,
       gender: { id: movie.id_gdr }
@@ -83,8 +83,16 @@ export class MainMoviesComponent implements OnInit{
     this.openDialog('2ms', '2ms');
   }
 
-  changeStatus(movie: Movie) {
-    this.movieService.changeStatus(movie)
+  disable(movie: Movie) {
+    this.movieService.disable(movie)
+      .subscribe((response) => {
+        console.log(response);
+        this.movieService.loading = false;
+        this.getAllMovies();
+      });
+  }
+  enable(movie: Movie) {
+    this.movieService.enable(movie)
       .subscribe((response) => {
         console.log(response);
         this.movieService.loading = false;

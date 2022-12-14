@@ -37,10 +37,14 @@ export class RoomsService{
     return this.http.put<Room[]>(`${APP_URL}api/rooms/update`, room)
   }
 
-  changeStatus(room: Room) {
+  disable(room: Room) {
     this.loading = true;
-    return this.http.delete<Room>(`${ APP_URL }api/rooms/delete`,
-      { body: room });
+    return this.http.put<Room>(`${ APP_URL }api/rooms/disable/`+room.id_room,{});
+  }
+
+  enable(room: Room){
+    this.loading = true;
+    return this.http.put<Room>(`${ APP_URL }api/rooms/enable/` + room.id_room, { });
   }
 
 }

@@ -6,11 +6,11 @@ import {APP_URL} from "../../../../services/base-url-app";
 @Injectable({
   providedIn: 'root'
 })
-export class MoviesService{
+export class MoviesService {
   loading: boolean = false;
-  private movieArray: Movie[]=[]
-  edit: boolean=false
-  movie: Movie={
+  private movieArray: Movie[] = []
+  edit: boolean = false
+  movie: Movie = {
     name_mve: '',
     duration: 0,
     gender: {},
@@ -18,28 +18,35 @@ export class MoviesService{
     image_mve: '',
   }
 
-  get movies(){
+  get movies() {
     return [...this.movieArray]
   }
 
   constructor(private http: HttpClient) {
   }
 
-  findAll(){
+  findAll() {
     this.loading = true
     return this.http.get<Movie[]>(`${APP_URL}api/movies/all`)
   }
-  save(movie: Movie){
+
+  save(movie: Movie) {
     this.loading = true
-    return this.http.post<Movie[]>(`${APP_URL}api/movies/save`, movie)
+    return this.http.post<Movie[]>(`${APP_URL}api/movies/save`, {...movie, gender: movie.gender?.id})
   }
-  update(movie: Movie){
+
+  update(movie: Movie) {
     this.loading = true
-    return this.http.put<Movie[]>(`${APP_URL}api/movies/update`, movie)
+    return this.http.put<Movie[]>(`${APP_URL}api/movies/update`, {...movie, gender: movie.gender?.id})
   }
-  changeStatus(movie: Movie) {
+
+  disable(movie: Movie) {
     this.loading = true;
-    return this.http.delete<Movie>(`${ APP_URL }api/movies/delete`,
-      { body: movie });
+    return this.http.put<Movie>(`${APP_URL}api/movies/disable/` + movie.id_mve, {movie, gender: movie.gender?.id});
+  }
+
+  enable(movie: Movie) {
+    this.loading = true;
+    return this.http.put<Movie>(`${APP_URL}api/movies/enable/` + movie.id_mve, {movie, gender: movie.gender?.id});
   }
 }
