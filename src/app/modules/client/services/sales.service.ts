@@ -19,6 +19,7 @@ export class SalesService{
   }
 
 
+
   constructor(private http:HttpClient) {
     this.dato=this.dato=localStorage.getItem('token')
     this.tkn = this.dato
@@ -30,5 +31,10 @@ export class SalesService{
   saveSale(sale: Sale_ticket){
     this.loading = true
     return this.http.post<Sale_ticket[]>(`${APP_URL}api/salestickets/save`,sale )
+  }
+
+  byId(id: string){
+    this.loading=true
+    return this.http.get<Sale_ticket[]>(`${APP_URL}api/salestickets/${id}`)
   }
 }

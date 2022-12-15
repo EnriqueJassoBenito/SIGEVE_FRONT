@@ -5,6 +5,7 @@ import {AuthService} from "../../service/auth.service";
 import {Router} from "@angular/router";
 import {GeneralService} from "../../../../services/general.service";
 import Swal from "sweetalert2";
+import {JwtHelperService} from "@auth0/angular-jwt";
 
 @Component({
   selector: 'app-login',
@@ -39,8 +40,12 @@ export class LoginComponent {
       this.authService.isLoading
     })
   }*/
+
+
+
   loginForm() {
     this.authService.login(this.user)
+
   }
 }
 

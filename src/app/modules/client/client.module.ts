@@ -7,6 +7,7 @@ import { MainCarteleraComponent } from './pages/main-cartelera/main-cartelera.co
 import { FormCardComponent } from './pages/form-card/form-card.component';
 import {RouterLink} from "@angular/router";
 import {FormsModule} from "@angular/forms";
+import { TicketsComponent } from './pages/tickets/tickets.component';
 
 
 
@@ -15,7 +16,8 @@ import {FormsModule} from "@angular/forms";
     MainClientComponent,
     ModalClientComponent,
     MainCarteleraComponent,
-    FormCardComponent
+    FormCardComponent,
+    TicketsComponent
   ],
   imports: [
     CommonModule,

@@ -12,6 +12,7 @@ import {MoviesServiceClient} from "../../services/movies.service";
 import {MovieShowsClientService} from "../../services/shows.service";
 import {AddRoomsComponent} from "../../../admin/rooms/pages/add-rooms/add-rooms.component";
 import {FormCardComponent} from "../form-card/form-card.component";
+import {LoginStateService} from "../../../../services/login-state.service";
 
 @Component({
   selector: 'app-main-cartelera',
@@ -36,11 +37,15 @@ export class MainCarteleraComponent {
 
   constructor(private showService: MovieShowsClientService,
               private _liveAnnouncer: LiveAnnouncer,
-              public dialog: MatDialog) {
+              public dialog: MatDialog, private loginStateService:LoginStateService) {
   }
 
   ngOnInit(){
     this.getAllShows()
+  }
+
+  get session(){
+    return this.loginStateService.isLogged
   }
 
   openDialog(enterAnimation: string, exitAnimation: string){
