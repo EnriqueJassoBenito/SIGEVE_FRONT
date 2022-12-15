@@ -7,10 +7,11 @@ import {MainGendersComponent} from "./modules/admin/genders/pages/main-genders/m
 import {MainClientComponent} from "./modules/client/pages/main-client/main-client.component";
 import {MainRoomsComponent} from "./modules/admin/rooms/pages/main-rooms/main-rooms.component";
 import {MainCarteleraComponent} from "./modules/client/pages/main-cartelera/main-cartelera.component";
-import {LoginGuardianService} from "./modules/auth/pages/login/login-guardian.service";
+import {LoginGuardianService} from "./modules/auth/service/login-guardian.service";
 import {
   MainMovies_showsComponent
 } from "./modules/admin/movies_shows/pages/main-movies_shows/main-movies_shows.component";
+import {VerifyEmailComponent} from "./modules/auth/pages/verify/verify-email.component";
 
 
 const routes: Routes = [
@@ -24,7 +25,8 @@ const routes: Routes = [
   {path: 'moviesAdmin', component: MainMoviesComponent, canActivate:[LoginGuardianService]},
   {path: 'gendersAdmin', component: MainGendersComponent, canActivate:[LoginGuardianService]},
   {path: 'showMoviesAdmin', component: MainMovies_showsComponent, canActivate:[LoginGuardianService]},
-  {path: 'roomsAdmin', component: MainRoomsComponent, canActivate:[LoginGuardianService]}
+  {path: 'roomsAdmin', component: MainRoomsComponent, canActivate:[LoginGuardianService]},
+  {path: 'api/users/enable/:token', component: VerifyEmailComponent}
 
 ];
 

@@ -3,6 +3,7 @@ import {map, Observable, shareReplay} from "rxjs";
 import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
 import {Router} from "@angular/router";
 import {LoginStateService} from "../../services/login-state.service";
+import {JwtHelperService} from "@auth0/angular-jwt";
 
 @Component({
   selector: 'app-navigation',
@@ -11,6 +12,14 @@ import {LoginStateService} from "../../services/login-state.service";
 })
 export class NavigationComponent {
 //Esto es provicional
+
+
+ autorization(){
+   const helper = new JwtHelperService();
+   const myRawToken = localStorage.getItem('token')
+   const decodedToken = helper.decodeToken();
+ }
+
   role:any={
     isAdmin : true,
     isClient: false
@@ -19,13 +28,6 @@ export class NavigationComponent {
   get session(){
     return this.loginStateService.isLogged
   }
-
-/*
-  session:any={
-    logged: true
-
-  }
-*/
 
   logoPath:string='../../../assets/img/palomitas-de-maiz.png' //hay un bug aqui
 

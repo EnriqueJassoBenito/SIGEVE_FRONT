@@ -3,6 +3,8 @@ import {UserLogin} from "../../types/user";
 import {LoginStateService} from "../../../../services/login-state.service";
 import {AuthService} from "../../service/auth.service";
 import {Router} from "@angular/router";
+import {GeneralService} from "../../../../services/general.service";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-login',
@@ -15,18 +17,30 @@ export class LoginComponent {
     password: '',
   };
   hide = true;
-  get session() {
+  /*get session() {
     return this.loginState.isLogged
-  }
+  }*/
 
   constructor(private authService:AuthService, private readonly router: Router,
-              private loginState: LoginStateService) {
-    this.loginState.setIsLogged = !!localStorage.getItem("token");
-    /*if (!this.loginState.isLogged)
-      this.router.navigateByUrl("/")*/
+              private loginState: LoginStateService, private generalService: GeneralService) {
+   /* this.loginState.setIsLogged = !!localStorage.getItem("token");*/
   }
-  loginForm(){
-    this.authService.login(this.user);
+  /*loginForm(){
+    this.authService.login(this.user).subscribe((response: any)=>{
+      if (response.error) {
+        this.generalService.showError(
+          response.error.message
+        );
+        return;
+      }
+      localStorage.setItem("token", response.token)
+/!*      this.loading = false*!/
+      this.loginState.setIsLogged = true
+      this.authService.isLoading
+    })
+  }*/
+  loginForm() {
+    this.authService.login(this.user)
   }
 }
 

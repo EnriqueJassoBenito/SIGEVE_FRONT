@@ -22,7 +22,8 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {materialModules} from "./types/material";
 import {AdminModule} from "./modules/admin/admin.module";
 import {ClientModule} from "./modules/client/client.module";
-import {LoginGuardianService} from "./modules/auth/pages/login/login-guardian.service";
+import {LoginGuardianService} from "./modules/auth/service/login-guardian.service";
+import {VerifyEmailComponent} from "./modules/auth/pages/verify/verify-email.component";
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import {LoginGuardianService} from "./modules/auth/pages/login/login-guardian.se
     AppComponent,
     NavigationComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    VerifyEmailComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +54,7 @@ import {LoginGuardianService} from "./modules/auth/pages/login/login-guardian.se
     ...materialModules,
     AdminModule,
     ClientModule,
+
 
   ],
   providers: [LoginGuardianService],
