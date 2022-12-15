@@ -37,12 +37,14 @@ export class MoviesService {
 
   update(movie: Movie) {
     this.loading = true
-    return this.http.put<Movie[]>(`${APP_URL}api/movies/update`, {...movie, gender: movie.gender?.id})
+    return this.http.put<Movie[]>(`${APP_URL}api/movies/update`,
+      {...movie, gender: movie.gender?.id})
   }
 
   disable(movie: Movie) {
     this.loading = true;
-    return this.http.put<Movie>(`${APP_URL}api/movies/disable/` + movie.id_mve, {movie, gender: movie.gender?.id});
+    return this.http.put<Movie>(`${APP_URL}api/movies/disable/`
+      + movie.id_mve, {movie, gender: movie.gender?.id});
   }
 
   enable(movie: Movie) {

@@ -12,6 +12,9 @@ import {
   MainMovies_showsComponent
 } from "./modules/admin/movies_shows/pages/main-movies_shows/main-movies_shows.component";
 import {VerifyEmailComponent} from "./modules/auth/pages/verify/verify-email.component";
+import {
+  MainSales_tickersComponent
+} from "./modules/admin/sales_tickers/pages/main-sales_tickers/main-sales_tickers.component";
 
 
 const routes: Routes = [
@@ -26,6 +29,7 @@ const routes: Routes = [
   {path: 'gendersAdmin', component: MainGendersComponent, canActivate:[LoginGuardianService]},
   {path: 'showMoviesAdmin', component: MainMovies_showsComponent, canActivate:[LoginGuardianService]},
   {path: 'roomsAdmin', component: MainRoomsComponent, canActivate:[LoginGuardianService]},
+  {path: 'salesticketsAdmin', component: MainSales_tickersComponent, canActivate:[LoginGuardianService]},
   {path: 'api/users/enable/:token', component: VerifyEmailComponent}
 
 ];

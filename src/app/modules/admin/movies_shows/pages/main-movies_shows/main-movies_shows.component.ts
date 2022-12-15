@@ -71,8 +71,8 @@ export class MainMovies_showsComponent implements OnInit{
     modalRef.afterClosed().subscribe((result: any)=>{
       this.getAllMovies_Shows()
       this.moviesShowsService.movie_show = {
-        name_mve: {},
-        number_room: {},
+        movie: {},
+        room: {},
         start_show: '',
         end_show: '',
         date_show: '',
@@ -80,13 +80,31 @@ export class MainMovies_showsComponent implements OnInit{
       }
     });
   }
-  editRoom(movie_show: any) {
+  editMovie_Show(movie_show: any) {
     this.moviesShowsService.movie_show = {
       ...movie_show,
       movie: { id: movie_show.id_mve }
     };
     this.moviesShowsService.edit = true;
     this.openDialog('2ms', '2ms');
+  }
+
+  disable(movie_show: Movie_show) {
+    this.moviesShowsService.disable(movie_show)
+      .subscribe((response) => {
+        console.log(response);
+        this.moviesShowsService.loading = false;
+        this.getAllMovies_Shows();
+      });
+  }
+
+  enable(movie_show: Movie_show) {
+    this.moviesShowsService.enable(movie_show)
+      .subscribe((response) => {
+        console.log(response);
+        this.moviesShowsService.loading = false;
+        this.getAllMovies_Shows();
+      });
   }
 
   changeStatus(movie_show: Movie_show) {

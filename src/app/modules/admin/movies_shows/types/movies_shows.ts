@@ -4,8 +4,8 @@ import {Room} from "../../rooms/types/rooms";
 
 export type Movie_show = Entity<number> &{
   id_msw?: number;
-  name_mve?: Movie;
-  number_room?: Room;
+  movie?: Movie;
+  room?: Room;
   start_show?: string;
   end_show?: string;
   date_show?: string;

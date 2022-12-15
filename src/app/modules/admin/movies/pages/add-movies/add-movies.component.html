@@ -7,7 +7,7 @@
 
         <mat-form-field appearance="fill" class="w-100">
           <mat-label>Name</mat-label>
-          <input matInput placeholder="name_mve " #name_mve="ngModel" name="name_mve" [(ngModel)]="movies.name_mve"
+          <input matInput placeholder="name_mve" #name_mve="ngModel" name="name_mve" [(ngModel)]="movies.name_mve"
                  required>
           <mat-error *ngIf="name_mve.invalid">
             <span *ngIf="name_mve.errors?.['required']">Campo obligatorio</span>
